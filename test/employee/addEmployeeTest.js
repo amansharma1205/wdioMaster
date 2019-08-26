@@ -5,7 +5,7 @@
 
 	        before(function (){
 	            Login_Page.loginToBenAdmin();
-	           browser.url('secure/company/employees');  
+	            browser.url('secure/company/employees');  
 	        })
 
 		describe('Test add employee form', async function() {
@@ -13,12 +13,12 @@
 			
 		  
 			 it('Test 1: Add new employee into system with Personal Information', (done) => {
-			 	 
+			 	 console.log("*******Calling Test 1");
 				try {
 
 				 expect(browser.getUrl()).to.have.string("/company/employees");
 			 	 Employee_Page.fillAddEmployeeFrom("Aman","Kumar","Sharma","Sr.","08/12/1980","000-00-0000","spanish");	
-			 	 expect(browser.getUrl()).to.have.string("employee/setting/");	 	
+			 	 //expect(browser.getUrl()).to.have.string("employee/setting/");	 	
 				    
 				} catch(err) {
 					console.log("Exception: " + err);
@@ -26,9 +26,10 @@
 				}
 			 });
 
-			 it('Contact Information', ()=>{
+			 it('Test 2:Contact Information', ()=>{
+			 	console.log("*******Calling Test 2");
              try{
-               console.log("inside 2nd it block");
+               
                Employee_Page.fillNewEmployeeContactInformation("automation@gmail.com");
               
                }catch(err) {
@@ -38,10 +39,10 @@
 
 			 });
 
-			 it('Employment Information',(done)=>{
-              
+			 it('Test 3: Employment Information',(done)=>{
+              console.log("*******Calling Test 3");
               try{
-              console.log("inside 2nd it block");
+              
               Employee_Page.fillEmploymentInformation("08/12/1980","fulltime");
                 
                 }catch(err) {
@@ -52,11 +53,13 @@
 
 			 });
 
-			 it('Compensation Information',(done)=>{
-              
+			 it('Test 4:Compensation Information',(done)=>{
+              console.log("*******Calling Test 4");
               try{
-              console.log("inside 2nd it block");
-              Employee_Page.fillCompensationInformationForm("1","2","25","40");
+              
+              Employee_Page.fillCompensationInformationForm("2","2","25","40");
+              expect(Employee_Page.sendEmailSucessMessage.getText()).to.equal("Success! Employee has been added.");
+              Employee_Page.sendEmailSucessMessage.waitForExist(null,true);
                }
                catch(err) {
 					console.log("Exception: " + err);
@@ -67,11 +70,12 @@
 
 			 
 
-			 it('Account Information',(done)=>{
-              
+			 it('Test 5:Account Information',(done)=>{
+              console.log("*******Calling Test 5");
               try{
-              console.log("inside 2nd it block");
+              
               Employee_Page.accountInformation();
+              expect(Employee_Page.sendEmailSucessMessage.getText()).to.equal("Registration email has been sent successfully!");
                  
                  }catch(err) {
 					console.log("Exception: " + err);

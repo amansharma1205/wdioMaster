@@ -80,7 +80,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error
-    logLevel: 'debug',
+    logLevel: 'error',
     //
     // Warns when a deprecated command is used
     deprecationWarnings: true,
@@ -168,7 +168,7 @@ exports.config = {
      */
     beforeSession: function (config, capabilities, specs) {
         const del=require('del');
-        del(['allure-report']);
+        del(['allure-results']);
      },
     /**
      * Gets executed before test execution begins. At this point you can access to all global

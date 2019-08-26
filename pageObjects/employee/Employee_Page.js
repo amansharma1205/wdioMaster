@@ -15,7 +15,7 @@ class Employee_Page {
 
     ///Conatct Information
 	get contactInfoLink() {return $("//ul/li[@class='bg-white'][2]/a[@class='pl-3']");}
-	get contactInfoTitle() {return $("[//h5[@class='font-weight-bold' and text()='Contact Information']]");} 
+	get contactInfoTitle() {return $("//h5[@class='font-weight-bold' and text()='Contact Information']");} 
 	get homeCountry(){ return $("//div[@class='col-md-3']/div[@class='gh-ba-select']/select[@class='form-control deluxe-disable-field']");}
     get homeAddress() {return $("#gh_EP_Contact_HomeAddress");}
     get city() {return $("#employeeContactPage [class='col-md-3']:nth-of-type(2) [type]");}
@@ -33,8 +33,8 @@ class Employee_Page {
     get employmentInfoSaveButton() {return $("#employeeEmploymentPage .btn-primary");}
 
     //Compensation Information
-    get payGroup() {return $("//div[@class='mb-3']/div[@class='row form-group mb-0']/div[@class='col-md-4']/div[@class='gh-ba-select']/select[@class='form-control form-control-sm']");}
-    get payType() {return $("//div[1]/div[@class='row form-group']//select[@class='form-control form-control-sm deluxe-ignore-field deluxe-disable-field']");}
+    get payGroup() {return $("//select[@id='payGroupSelect']");}
+    get payType() {return $("//select[@id='payTypeSelect']");}
     get payRate() {return $("#employeeCompensationPage .form-group:nth-of-type(1) [type]");}
     get estimatedHour() {return $("#employeeCompensationPage .form-group:nth-of-type(2) .form-control-sm");}
     get compensationInformationSaveButton() {return $("#employeeCompensationPage .btn-primary");}
@@ -86,7 +86,8 @@ class Employee_Page {
 		}
 
     	this.saveButton.click();
-        this.contactInfoTitle.waitForExist();
+    	this.contactInfoTitle.waitForExist();
+    	this.contactInfoTitle.waitForDisplayed();
         
   
 
@@ -103,30 +104,45 @@ class Employee_Page {
           
        if(email){
        	this.email.waitForExist();
+       	this.email.waitForDisplayed();
+       	browser.pause(1000);
        	this.email.setValue("Test@gmail.com");
+
        	}
        this.contactPagecontinueButton.scrollIntoView();
        this.contactPagecontinueButton.click();
-       browser.pause(2000); // wait for ajax
-       this.employmentInformationTitle.waitForDisplayed(undefined);
+      // browser.pause(2000); // wait for ajax
+       this.sendEmailSucessMessage.waitForExist();
+       this.sendEmailSucessMessage.waitForExist(false);
+       this.employmentInformationTitle.waitForExist();
+       this.employmentInformationTitle.waitForDisplayed();
+       
        
        
 	}
 
 	fillEmploymentInformation(startDate,employmentType,timeZone){
 		this.employmentInformationTitle.waitForExist();
-	  	this.employmentInfoLink.waitForExist();
+	  	//this.employmentInfoLink.waitForExist();
 
 		if(startDate){
-			browser.pause(1000);
+			
 			this.startDate.waitForExist();
+			this.startDate.waitForDisplayed();
+			this.startDate.click();
+			browser.pause(1000);
 			this.startDate.setValue(startDate);
+			browser.pause(2000);
+			if(this.startDate.getText()===""){
+			this.startDate.setValue(startDate);}
+			
 		}
 		if(employmentType){
 			browser.pause(1000);
 			this.employmentType.waitForExist();
+			this.employmentType.waitForDisplayed();
 			this.employmentType.click();
-			this.employmentType.selectByAttribute("value",employmentType);
+			this.employmentType.selectByIndex(1);
 		}
 		if(timeZone){
 			this.timeZone.waitForExist();
@@ -136,37 +152,52 @@ class Employee_Page {
         this.employmentInfoSaveButton.waitForExist();
 		this.employmentInfoSaveButton.click();
 		this.compensationInfoLink.waitForExist();
+		this.compensationInfoLink.waitForDisplayed();
 	}
 
 
 	 fillCompensationInformationForm(payGroup,payType,payRate,estimatedHour){
 		
 		this.compensationInfoLink.waitForExist();
+		this.compensationInfoLink.waitForDisplayed();
 		this.compensationInfoLink.click();
-		
+		//wait for dropdown to load..
+		//browser.pause(1000);
 		if(payGroup){
           this.payGroup.waitForExist();
+          this.payGroup.waitForDisplayed();
           this.payGroup.click();
+          browser.pause(2000);
           this.payGroup.selectByIndex(payGroup);
+          browser.pause(1000);
 		}
 
 		if(payType){
 		this.payType.waitForExist();
 		this.payType.click();
 		this.payType.selectByIndex(payType);
+		browser.pause(1000);
 	    }
 
 	    if(payRate){
 	    	this.payRate.waitForExist();
 	    	this.payRate.setValue(payRate);
+	    	browser.pause(1000);
 	    }
 	    if(estimatedHour){
 	    	this.estimatedHour.waitForExist();
 	    	this.estimatedHour.setValue(estimatedHour);
+	    	browser.pause(1000);
 	    }
 	    this.compensationInformationSaveButton.waitForExist();
 	    this.compensationInformationSaveButton.click();
+	    this.sendEmailSucessMessage.waitForExist();
+	 	this.sendEmailSucessMessage.waitForDisplayed();
+	 	// to wait for message to be appear ..
+	    browser.pause(2000);
 	    this.accountInformationLink.waitForExist();
+	    this.accountInformationLink.waitForDisplayed();
+        
 
 	 }
 
@@ -177,6 +208,7 @@ class Employee_Page {
 	 	this.sendRegistrationEmailButton.waitForExist();
 	 	this.sendRegistrationEmailButton.click();
 	 	this.sendEmailSucessMessage.waitForExist();
+	 	this.sendEmailSucessMessage.waitForDisplayed();
         
 
 

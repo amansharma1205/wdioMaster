@@ -134,7 +134,8 @@ class Employee_Page {
 			this.startDate.setValue(startDate);
 			browser.pause(2000);
 			if(this.startDate.getText()===""){
-			this.startDate.setValue(startDate);}
+			this.startDate.setValue(startDate);
+		    browser.pause(2000);}//wait for change event to be complted//
 			
 		}
 		if(employmentType){
@@ -142,7 +143,7 @@ class Employee_Page {
 			this.employmentType.waitForExist();
 			this.employmentType.waitForDisplayed();
 			this.employmentType.click();
-			this.employmentType.selectByIndex(1);
+			this.employmentType.selectByIndex(employmentType);
 		}
 		if(timeZone){
 			this.timeZone.waitForExist();

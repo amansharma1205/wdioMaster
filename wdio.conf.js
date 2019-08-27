@@ -87,7 +87,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'error',
     //
     // Set specific log levels per logger
     // loggers:
@@ -143,22 +143,15 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['dot',  'json', 'allure'],
-
-    reporterOptions: {
-        // junit: {
-        //     outputDir: './reports/'
-        // },
-        json: {
-            outputDir: '../reports/json-results/'
-        },
-        allure: {
-            outputDir: '../../reports/allure-results/',
-            disableWebdriverStepsReporting: false,
-            disableWebdriverScreenshotsReporting: false,
-            useCucumberStepReporter: false
-        }
-    },
+    reporters: ['dot',
+        ['json',{
+        outputDir: './reports/json'}],
+  
+        ['allure', {
+        outputDir: './reports/allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+    }]],
     
     //
     // Options to be passed to Mocha.
@@ -191,7 +184,7 @@ exports.config = {
      */
     beforeSession: function (config, capabilities, specs) {
         const del=require('del');
-        del(['allure-results','reports']);
+        del(['reports']);
      },
     /**
      * Gets executed before test execution begins. At this point you can access to all global
@@ -264,8 +257,10 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that ran
      */
-    // after: function (result, capabilities, specs) {
-    // },
+    after: function (result, capabilities, specs) {
+        var name = 'ERROR-chrome-' + Date.now()
+        //browser.saveScreenshot('./errorShots/' + name + '.png')
+    },
     /**
      * Gets executed right after terminating the webdriver session.
      * @param {Object} config wdio configuration object

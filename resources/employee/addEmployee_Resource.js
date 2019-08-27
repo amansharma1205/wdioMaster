@@ -1,22 +1,22 @@
 module.exports = {
   "personalInformation": {
-    "fName": "empfis@fisglobal.com",
-    "mName": "Pass1234",
-    "lName": "Pass1234",
-    "Suffix" :"",
+    "fName": "Sal",
+    "mName": "Shah",
+    "lName": "Sharma",
+    "Suffix" :"Sr.",
     "legalGender" :"",
-    "dateOfBirth" :"",
-    "ssn" :"",
-    "language":""
+    "dateOfBirth" :"08/12/1980",
+    "ssn" :"000-00-0000",
+    "language":"spanish"
   },
   "contactInformation": {
-    "homeCountry": "1234@pokemail.net",
+    "homeCountry": "USA",
     "homeAddress": "Teste12345!",
     "city":"",
     "state":"",
     "zip":"",
     "Phone":"",
-    "email":"",
+    "email":"automation@gmail.com",
     "workPhone":"",
     "workEmail":"",
     "emergencyContactName" :"",
@@ -24,23 +24,23 @@ module.exports = {
     "emergencyContactphone":"",
     "emergencyContactAltNumber":""
 
-  }
+  },
   "employmentInformation":{
-     "Start Date":"",
+     "startDate":"09/01/2019",
      "jobTitle":"",
-     "employeeType":"",
+     "employeeType":"1", // 1 for full time (index)
      "employeeID":"",
      "workLocations":"",
      "timeZone":"",
      "employeeSupervisor":"",
      "isEmployeeSupervisor":""
 
-  }
+  },
   "compensationInformation":{
-  	"payGroup":"",
-  	"payType":"",
-  	"payRate":"",
-  	"estimatedHoursWorkedWeek":""
+  	"payGroup":"2",
+  	"payType":"2",
+  	"payRate":"25",
+  	"estimatedHoursWorkedWeek":"45"
 
   }
 }

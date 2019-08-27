@@ -1,10 +1,10 @@
 {
-  "name": "webdriverioFramework",
+  "name": "wdioMaster",
   "version": "1.0.0",
   "description": "Webdriverio Framework",
   "main": "index.js",
   "scripts": {
-    "test": "wdio"
+  "test": "wdio"
   },
   "author": "Aman",
   "license": "ISC",
@@ -25,7 +25,6 @@
     "nodemon": "^1.19.1",
     "selenium-standalone": "^5.11.2",
     "sync-request": "^6.1.0",
-    "wdio-allure-reporter": "^0.8.3",
     "wdio-chromedriver-service": "^5.0.2",
     "wdio-json-reporter": "^1.3.1",
     "wdio-junit-reporter": "^0.4.4",

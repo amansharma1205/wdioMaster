@@ -1,0 +1,57 @@
+{
+  "uid" : "af8137d0a06806f6",
+  "name" : "Test 2 :- Verify Company and submenu",
+  "fullName" : "Verify all the smoke test cases for BEN.Test 2 :- Verify Company and submenu",
+  "historyId" : "37bbe10e4db70a46e13d2fbe5e4fc46e",
+  "time" : {
+    "start" : 1567446702053,
+    "stop" : 1567446739352,
+    "duration" : 37299
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-1"
+  }, {
+    "name" : "suite",
+    "value" : "Verify all the smoke test cases for BEN"
+  }, {
+    "name" : "testClass",
+    "value" : "Verify all the smoke test cases for BEN"
+  }, {
+    "name" : "testMethod",
+    "value" : "Test 2 :- Verify Company and submenu"
+  }, {
+    "name" : "package",
+    "value" : "Verify all the smoke test cases for BEN"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "browser",
+    "value" : "chrome"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "af8137d0a06806f6.json",
+  "parameterValues" : [ "chrome" ]
+}

@@ -4,12 +4,11 @@ module.exports = {
     "password": "Pass1234"
   },
   "stagingServer_credentials": {
-    "email": "1234@pokemail.net",
-    "password": "Teste12345!"
+    "email": "wdio@gmail.com",
+    "password": "Wdio@1234"
   },
   "inValidLogin":{
   	"email": "empfis@fisglobal.com",
     "password": "Pass1234"
-
   }
 }

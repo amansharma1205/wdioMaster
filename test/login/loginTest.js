@@ -25,9 +25,14 @@
 		 });
 
 		it('Test2: Admin should  be able to login with valid data', () => {
-			
-			 Login_Page.setUserName(data.devServer_credencials.email);
-			 Login_Page.setPassword(data.devServer_credencials.password);
+			                   
+			 if(process.env.SERVER=='prod'){
+		       Login_Page.setUserName(data.stagingServer_credentials.email);
+	           Login_Page.setPassword(data.stagingServer_credentials.password);	
+		       }else {
+			   Login_Page.setUserName(data.devServer_credencials.email);
+			   Login_Page.setPassword(data.devServer_credencials.password);
+			   }
 			 Login_Page.clickSubmitButton();
 			try {
 				expect(Login_Page.successfulLogin.getText()).to.have.string("Dashboard");

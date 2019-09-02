@@ -1,0 +1,57 @@
+{
+  "uid" : "8f86e14cc6409e1a",
+  "name" : "Test 4 :- Verify Enrollment Menu",
+  "fullName" : "Verify all the smoke test cases for BEN.Test 4 :- Verify Enrollment Menu",
+  "historyId" : "bbfaab03c790fe819ae2fce1e535feab",
+  "time" : {
+    "start" : 1567446752110,
+    "stop" : 1567446786530,
+    "duration" : 34420
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-1"
+  }, {
+    "name" : "suite",
+    "value" : "Verify all the smoke test cases for BEN"
+  }, {
+    "name" : "testClass",
+    "value" : "Verify all the smoke test cases for BEN"
+  }, {
+    "name" : "testMethod",
+    "value" : "Test 4 :- Verify Enrollment Menu"
+  }, {
+    "name" : "package",
+    "value" : "Verify all the smoke test cases for BEN"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "browser",
+    "value" : "chrome"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "8f86e14cc6409e1a.json",
+  "parameterValues" : [ "chrome" ]
+}

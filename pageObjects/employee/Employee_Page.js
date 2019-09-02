@@ -2,6 +2,7 @@ class Employee_Page {
 	get searchByNameEmail() { return $("[class='form-control pl-5']");}
 	get addEmployeesButton() { return $("#addEmployeesButton");}
 	get showFilterLink() { return $("[id='searchQueryContainerExpandButton']");}
+	get addEmployeeScreen() {return $("//div[@id='createEmployeeModal']");}
 	get firstName() {return $("[name='fname']");}
 	get middleName() {return $("[name='mname']");}
 	get lastName() {return $("[name='lname']");}
@@ -14,6 +15,7 @@ class Employee_Page {
 	get saveButton(){return $("[data-type='create']");}
 
     ///Conatct Information
+    get contactInfoScreen() {return $("//div[@id='employeeContactPage']");}
 	get contactInfoLink() {return $("//ul/li[@class='bg-white'][2]/a[@class='pl-3']");}
 	get contactInfoTitle() {return $("//h5[@class='font-weight-bold' and text()='Contact Information']");} 
 	get homeCountry(){ return $("//div[@class='col-md-3']/div[@class='gh-ba-select']/select[@class='form-control deluxe-disable-field']");}
@@ -21,7 +23,7 @@ class Employee_Page {
     get city() {return $("#employeeContactPage [class='col-md-3']:nth-of-type(2) [type]");}
     get state() {return $("//div/input[@class='form-control deluxe-disable-field']");}
     get zip() {return $("#employeeContactPage [maxlength='10']");}
-    get email() {return $("[id='contactEmail']");}
+    get email() {return $("//input[@placeholder='test@personalemail.com']");}
     get contactPagecontinueButton() {return $("#employeeContactPage .btn-primary");}
 
     //Employment Information
@@ -53,6 +55,11 @@ class Employee_Page {
 		//var visibile=browser.isVisible(this.addEmployeesButton);
 		//console.log(visibile);
 		this.addEmployeesButton.click();
+		browser.waitUntil(()=>{
+    	  return this.addEmployeeScreen.isDisplayed()===true
+    	 },10000,'Wait till addEmployeeScreen displayed');
+
+		
 		if(firstName) {
 			this.firstName.waitForExist(5000);
 			this.firstName.setValue(firstName);
@@ -96,6 +103,9 @@ class Employee_Page {
 	 fillNewEmployeeContactInformation(email)
 	 {
 	 	
+	 	browser.waitUntil(()=>{
+    	  return this.contactInfoScreen.isDisplayed()===true
+    	 },10000,'Wait till contactInfoScreen displayed');
 	 	 this.homeCountry.waitForExist();
 	  	 this.homeAddress.waitForExist();
 	     this.city.waitForExist();

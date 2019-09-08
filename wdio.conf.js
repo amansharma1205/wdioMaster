@@ -30,7 +30,8 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs:[ 
-        './test/**/*.js'
+        './test/**/**/*.js'
+       
     ],
     // Patterns to exclude.
     exclude: [
@@ -196,6 +197,7 @@ exports.config = {
          expect = require('chai').expect;
          should = require('chai').should();
          assert = require('assert');
+         retryCount=2;
          browser.maximizeWindow();
      },
     /**

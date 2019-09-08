@@ -1,5 +1,5 @@
 	var Login_Page = require("../../pageObjects/login/Login_Page.js");
-	const data = require('../../resources/login/login_Resource.js')
+	const data = require('../../resources/login/login_Resource.js');
 	//const helpers = require("../../../resources/helpers.js");
 
      
@@ -22,7 +22,7 @@
 				console.log("Exception: " + err);
 				assert.fail();
 				}
-		 });
+		 },retryCount);
 
 		it('Test2: Admin should  be able to login with valid data', () => {
 			                   
@@ -41,5 +41,5 @@
 				console.log("Exception: " + err);
 				assert.fail();
 			}
-		});
+		},retryCount);
 	});

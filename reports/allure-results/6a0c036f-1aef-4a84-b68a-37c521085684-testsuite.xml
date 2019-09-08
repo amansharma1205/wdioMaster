@@ -1,0 +1,21 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1567944109231' stop='1567944128728'>
+    <name>Test  - Verify adding a new Medical plan under a compnay</name>
+    <title>Test  - Verify adding a new Medical plan under a compnay</title>
+    <test-cases>
+        <test-case start='1567944109231' status='passed' stop='1567944128724'>
+            <name>Test 1 - Verify adding basic detail of Medical Plan</name>
+            <title>Test 1 - Verify adding basic detail of Medical Plan</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
